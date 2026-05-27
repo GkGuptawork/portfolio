@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Guddu Kumar – MIS & Data Analytics Executive</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --cream:#fdf6ee;--amber:#d4845a;--amber-light:#e8a87c;--brown:#6b3f2a;
+    --text:#3d2b1f;--muted:#8a6a58;--card:#fff8f2;--shadow:rgba(100,50,20,.1);
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI',sans-serif;background:var(--cream);color:var(--text);}
+
+  nav{position:fixed;top:0;width:100%;background:rgba(253,246,238,.96);backdrop-filter:blur(8px);z-index:99;border-bottom:1px solid #f0dfd0;}
+  .nav-inner{max-width:1100px;margin:auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:60px;}
+  .logo{font-weight:700;font-size:1.1rem;color:var(--amber);}
+  .nav-links a{margin-left:1.8rem;text-decoration:none;color:var(--muted);font-size:.88rem;transition:color .2s;}
+  .nav-links a:hover{color:var(--amber);}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:linear-gradient(135deg,#fdf6ee 55%,#fce8d5);}
+  .avatar{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--amber-light),var(--amber));display:flex;align-items:center;justify-content:center;font-size:2.6rem;margin:0 auto 1.4rem;box-shadow:0 8px 30px var(--shadow);}
+  #hero h1{font-size:2.6rem;font-weight:700;color:var(--brown);}
+  #hero h1 span{color:var(--amber);}
+  .subtitle{margin-top:.4rem;font-size:1.05rem;color:var(--muted);font-weight:500;}
+  #hero p.bio{margin-top:1rem;font-size:.97rem;color:var(--muted);max-width:580px;margin-left:auto;margin-right:auto;line-height:1.75;}
+  .contact-row{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:1.2rem;}
+  .contact-chip{display:flex;align-items:center;gap:.4rem;background:var(--card);border:1.5px solid #f0dfd0;border-radius:50px;padding:.4rem 1rem;font-size:.82rem;color:var(--brown);text-decoration:none;font-weight:500;transition:border-color .2s;}
+  .contact-chip:hover{border-color:var(--amber);}
+  .btns{margin-top:1.8rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn{padding:.7rem 1.7rem;border-radius:50px;font-size:.93rem;font-weight:600;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s;}
+  .btn-primary{background:var(--amber);color:#fff;box-shadow:0 4px 15px rgba(212,132,90,.4);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,132,90,.5);}
+  .btn-outline{background:transparent;color:var(--amber);border:2px solid var(--amber);}
+  .btn-outline:hover{background:var(--amber);color:#fff;transform:translateY(-2px);}
+
+  section{padding:5rem 2rem;}
+  .container{max-width:1000px;margin:auto;}
+  .section-title{text-align:center;margin-bottom:3rem;}
+  .section-title h2{font-size:1.9rem;color:var(--brown);display:inline-block;}
+  .section-title h2::after{content:'';display:block;height:3px;width:55px;background:var(--amber);margin:.5rem auto 0;border-radius:2px;}
+  .section-title p{color:var(--muted);margin-top:.6rem;font-size:.92rem;}
+
+  /* ABOUT */
+  #about{background:#fff8f2;}
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start;}
+  .about-text p{color:var(--muted);line-height:1.85;margin-bottom:1rem;font-size:.95rem;}
+  .about-highlights{display:flex;flex-direction:column;gap:.9rem;}
+  .highlight{background:var(--cream);border-left:4px solid var(--amber);padding:.9rem 1.1rem;border-radius:0 8px 8px 0;}
+  .highlight strong{color:var(--brown);display:block;font-size:.9rem;}
+  .highlight span{color:var(--muted);font-size:.82rem;}
+
+  /* EXPERIENCE */
+  .exp-list{display:flex;flex-direction:column;gap:1.8rem;}
+  .exp-card{background:var(--card);border-radius:16px;padding:1.6rem 1.8rem;box-shadow:0 2px 14px var(--shadow);border-left:4px solid var(--amber);}
+  .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem;}
+  .exp-title h4{color:var(--brown);font-size:1rem;font-weight:700;}
+  .exp-title span{color:var(--muted);font-size:.85rem;}
+  .exp-badge{background:var(--amber);color:#fff;font-size:.75rem;padding:.25rem .75rem;border-radius:20px;white-space:nowrap;font-weight:600;}
+  .exp-badge.prev{background:#f0dfd0;color:var(--amber);}
+  .exp-card ul{padding-left:1.2rem;}
+  .exp-card ul li{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:.3rem;}
+
+  /* SKILLS */
+  #skills{background:#fff8f2;}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.2rem;}
+  .skill-card{background:var(--card);border-radius:14px;padding:1.3rem;text-align:center;box-shadow:0 2px 10px var(--shadow);transition:transform .2s;}
+  .skill-card:hover{transform:translateY(-4px);}
+  .skill-icon{font-size:1.8rem;margin-bottom:.6rem;}
+  .skill-card h4{color:var(--brown);font-size:.85rem;margin-bottom:.5rem;font-weight:600;}
+  .skill-bar{height:5px;background:#f0dfd0;border-radius:3px;overflow:hidden;}
+  .skill-fill{height:100%;background:linear-gradient(90deg,var(--amber-light),var(--amber));border-radius:3px;}
+
+  /* PROJECTS */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;}
+  .project-card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 2px 14px var(--shadow);transition:transform .2s;}
+  .project-card:hover{transform:translateY(-5px);}
+  .project-thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
+  .p1{background:linear-gradient(135deg,#fce8d5,#f8c9a8);}
+  .p2{background:linear-gradient(135deg,#d5eaf8,#a8cef8);}
+  .p3{background:linear-gradient(135deg,#d5f8e3,#a8f0c0);}
+  .project-body{padding:1.2rem;}
+  .project-body h4{color:var(--brown);font-weight:700;margin-bottom:.4rem;font-size:.95rem;}
+  .project-body p{color:var(--muted);font-size:.83rem;line-height:1.65;}
+  .tags{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.35rem;}
+  .tag{background:#f0dfd0;color:var(--amber);font-size:.72rem;padding:.2rem .6rem;border-radius:20px;font-weight:600;}
+
+  /* CERTS */
+  #certs{background:#fff8f2;}
+  .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
+  .cert-card{background:var(--card);border-radius:14px;padding:1.2rem 1.4rem;box-shadow:0 2px 10px var(--shadow);display:flex;align-items:flex-start;gap:.8rem;}
+  .cert-icon{font-size:1.5rem;flex-shrink:0;}
+  .cert-card h4{color:var(--brown);font-size:.88rem;font-weight:600;}
+  .cert-card span{color:var(--muted);font-size:.78rem;}
+
+  /* CONTACT */
+  .contact-card{background:var(--card);border-radius:20px;padding:3rem;box-shadow:0 4px 24px var(--shadow);max-width:580px;margin:auto;text-align:center;}
+  .contact-card p{color:var(--muted);margin-bottom:1.8rem;line-height:1.7;font-size:.95rem;}
+  .contact-links{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:2rem;}
+  .contact-link{display:flex;align-items:center;gap:.45rem;color:var(--amber);font-weight:600;text-decoration:none;font-size:.9rem;}
+  .contact-link:hover{color:var(--brown);}
+  .contact-form{display:flex;flex-direction:column;gap:.9rem;text-align:left;}
+  .contact-form input,.contact-form textarea{padding:.8rem 1rem;border:1.5px solid #f0dfd0;border-radius:10px;font-size:.92rem;font-family:inherit;background:var(--cream);color:var(--text);outline:none;transition:border .2s;}
+  .contact-form input:focus,.contact-form textarea:focus{border-color:var(--amber);}
+  .contact-form textarea{resize:vertical;min-height:100px;}
+
+  footer{background:var(--brown);color:#f0dfd0;text-align:center;padding:1.4rem;font-size:.82rem;}
+
+  @media(max-width:650px){
+    #hero h1{font-size:2rem;}
+    .about-grid{grid-template-columns:1fr;}
+    .exp-header{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Guddu Kumar</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div>
+    <div class="avatar">👨‍💼</div>
+    <h1><span>Guddu Kumar</span></h1>
+    <div class="subtitle">MIS & Data Analytics Executive</div>
+    <p class="bio">Detail-oriented MIS professional with hands-on experience in MIS reporting, data analysis, accounting operations, and financial reconciliation. Skilled in turning raw data into actionable business insights.</p>
+    <div class="contact-row">
+      <a class="contact-chip" href="tel:8578939539">📞 8578939539</a>
+      <a class="contact-chip" href="mailto:gkgupta.work@gmail.com">✉️ gkgupta.work@gmail.com</a>
+      <a class="contact-chip" href="https://linkedin.com/in/guddu-kumar-01a104341" target="_blank">💼 LinkedIn</a>
+      <a class="contact-chip" href="#">📍 Panipat, Haryana</a>
+    </div>
+    <div class="btns">
+      <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-title"><h2>About Me</h2></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a MIS & Data Analytics Executive passionate about transforming complex business data into clear, actionable reports. With 3+ years of hands-on experience across manufacturing and export industries, I specialize in building dashboards, automating workflows, and ensuring 100% data accuracy.</p>
+        <p>My work spans across MIS reporting, ERP systems (Tally & Busy), Power BI dashboards, and Google Apps Script automation — all aimed at helping management make faster, smarter decisions.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight"><strong>🎓 Education</strong><span>Bachelor's Degree – Bihar University (2023)</span></div>
+        <div class="highlight"><strong>📍 Location</strong><span>Panipat, Haryana, India</span></div>
+        <div class="highlight"><strong>💼 Experience</strong><span>3+ Years in MIS & Data Analytics</span></div>
+        <div class="highlight"><strong>🌐 Languages</strong><span>Hindi – Fluent | English – Professional</span></div>
+        <div class="highlight"><strong>🏢 Current Role</strong><span>MIS Executive @ Shivam International</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-title"><h2>Experience</h2><p>My professional journey</p></div>
+    <div class="exp-list">
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">
+            <h4>MIS Executive</h4>
+            <span>Shivam International – Panipat, Haryana</span>
+          </div>
+          <span class="exp-badge">May 2026 – Present</span>
+        </div>
+        <ul>
+          <li>Preparing daily, weekly, and monthly MIS reports for business operations.</li>
+          <li>Working extensively on Google Sheets, Google Forms & Workspace for data management.</li>
+          <li>Using Google Apps Script for basic automation and workflow efficiency improvements.</li>
+          <li>Creating Excel & Google Sheets dashboards for improved data visibility.</li>
+          <li>Ensuring data accuracy and timely submission of all reports.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">
+            <h4>MIS Cum Account Executive</h4>
+            <span>DMW EXPORT Pvt. Ltd. – Kundli, Sonipat, Haryana</span>
+          </div>
+          <span class="exp-badge prev">Oct 2022 – April 2026</span>
+        </div>
+        <ul>
+          <li>Prepared daily/weekly/monthly MIS reports for production, inventory, and accounts.</li>
+          <li>Developed Excel-based dashboards improving reporting efficiency and data visibility.</li>
+          <li>Maintained party-wise ledgers, goods balances, and reconciliation using Tally ERP & Busy.</li>
+          <li>Performed accounting entries, voucher posting, and financial reconciliation with high accuracy.</li>
+          <li>Analyzed production & accounts data to identify trends and support operational improvements.</li>
+          <li>Ensured 100% data accuracy and timely reporting across business operations.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-title"><h2>Skills</h2><p>Tools & technologies I work with</p></div>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-icon">📊</div><h4>Advanced Excel</h4><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div class="skill-card"><div class="skill-icon">📋</div><h4>Google Sheets</h4><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+      <div class="skill-card"><div class="skill-icon">⚙️</div><h4>Google Apps Script</h4><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-card"><div class="skill-icon">📈</div><h4>Power BI</h4><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+      <div class="skill-card"><div class="skill-icon">🗄️</div><h4>SQL (PostgreSQL)</h4><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+      <div class="skill-card"><div class="skill-icon">🧮</div><h4>Tally ERP & Busy</h4><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-card"><div class="skill-icon">🔄</div><h4>Power Query</h4><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-card"><div class="skill-icon">📦</div><h4>MIS Reporting</h4><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-title"><h2>Projects</h2><p>Key work I've delivered</p></div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-thumb p1">📦</div>
+        <div class="project-body">
+          <h4>MIS & Production Reporting System</h4>
+          <p>Designed and maintained structured reports for tracking production performance, inventory levels, and operational KPIs to support management decision-making.</p>
+          <div class="tags"><span class="tag">Excel</span><span class="tag">MIS</span><span class="tag">Dashboards</span><span class="tag">Google Sheets</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb p2">📒</div>
+        <div class="project-body">
+          <h4>Party-wise Ledger Management</h4>
+          <p>Managed and analyzed customer/vendor transactions and balances for accurate reporting, reconciliation, and financial clarity using Tally ERP and Busy.</p>
+          <div class="tags"><span class="tag">Tally ERP</span><span class="tag">Busy</span><span class="tag">Reconciliation</span><span class="tag">Accounting</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb p3">🤖</div>
+        <div class="project-body">
+          <h4>Workflow Automation with Apps Script</h4>
+          <p>Developed Google Apps Script automations to streamline repetitive data entry and reporting tasks, saving significant manual hours weekly.</p>
+          <div class="tags"><span class="tag">Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Automation</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <div class="section-title"><h2>Certifications</h2><p>Continuous learning & upskilling</p></div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon">🖥️</div><div><h4>Advanced Diploma in Computer Applications</h4><span>ADCA</span></div></div>
+      <div class="cert-card"><div class="cert-icon">🤖</div><div><h4>AI Tools & ChatGPT Workshop</h4><span>Be10X</span></div></div>
+      <div class="cert-card"><div class="cert-icon">📊</div><div><h4>Advanced Excel Workshop</h4><span>IRA Skills</span></div></div>
+      <div class="cert-card"><div class="cert-icon">💡</div><div><h4>ChatGPT Master Course</h4><span>Dhruv Rathee</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-title"><h2>Get In Touch</h2><p>Open to opportunities & collaborations</p></div>
+    <div class="contact-card">
+      <p>Whether you have a job opportunity, a project, or just want to connect — feel free to reach out. I'm always open to meaningful conversations!</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:gkgupta.work@gmail.com">📧 gkgupta.work@gmail.com</a>
+        <a class="contact-link" href="tel:8578939539">📞 8578939539</a>
+        <a class="contact-link" href="https://linkedin.com/in/guddu-kumar-01a104341" target="_blank">💼 LinkedIn</a>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Your Name"/>
+        <input type="email" placeholder="Your Email"/>
+        <textarea placeholder="Your Message..."></textarea>
+        <button class="btn btn-primary">Send Message 🚀</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Guddu Kumar · MIS & Data Analytics Executive · Panipat, Haryana</p>
+</footer>
+
+</body>
+</html>
